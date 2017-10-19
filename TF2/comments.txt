@@ -1,0 +1,97 @@
+CTD = Crash To Desktop
+"I", "I've" = The creator of the config framework.
+
+** this is unfinished as fuck, also not organized **
+
+The best sources of information:
+https://developer.valvesoftware.com/wiki/SDK_Docs (Read through this first)
+https://github.com/VSES/SourceEngine2007 + https://github.com/ValveSoftware/source-sdk-2013 and https://github.com/ValveSoftware/ToGL (for Mac and Linux stuff)
+http://www.cplusplus.com/ and other sources for understanding what something does in the C++ language.
+
+Everything below should be considered, not taken as fact. Same goes for what everyone else says on forums (such as teamfortress.tv).
+
+
+dsp_slow_cpu
+[
+This does nothing (what I believe is the case) or functions not as intended, the method I used of telling was by setting snd_spatialize_roundrobin to 0 for draining FPS, then 5 to gain FPS. dsp_slow_cpu is meant to disable spatialization when enabled.
+]
+
+
+alias cc_emit;alias cc_random;alias cl_animationinfo;alias demos;alias startmovie
+[
+For protection reasons, the first three aliased just crash your game if executed while in a game (cc_emit requires something put after it to crash the game).
+
+demos is aliased by it only causing a forced reconnect, use retry if you want to force reconnect.
+
+startmovie is aliased for this reason: https://www.youtube.com/watch?v=qwFvIbY9Hz0
+This points out that this could be potentially exploited in other games, even without the use of LUA.
+]
+
+
+mat_forcehardwaresync 0;mat_forcemanagedtextureintohardware 0
+[
+In 2016, these convars were causing some people to CTD badly when enabled.
+]
+
+
+r_queued_decals
+[
+Makes TF2 very unstable when enabled.
+]
+
+
+dxsupport_override.cfg
+[
+dxsupport.csv contains the convars you can touch for this specific cfg.
+I do the changes by dxlevel instead of hardware configurations.
+It has _override at the end from the config being in the custom folder.
+]
+
+
+jpeg_quality 100
+[
+Screenshots become PNG quality,
+]
+
+
+cl_smooth
+[
+Smoothing out prediction errors leads to inaccuracy, it's obvious if you were to force your game to be sped up on a server that isn't yours.
+]
+
+
+net_splitrate 4
+[
+This value compensates for everything expect full-updates, which only occurs after a map has been loaded, or you manually force a full-update on your client.
+]
+
+
+cl_cmdrate 100
+[
+https://developer.valvesoftware.com/wiki/TF2_Network_Graph
+"Conversely, if the cl_cmdrate is higher than 66.67, it's possible that some physical packets will be sent to the server without any actual usercmds in them."
+]
+
+
+snd_mixahead .08
+[
+Setting snd_mixahead to .05 (50ms) causes audio issues with some hardware (choppy and/or an invisible extra delay).
+]
+
+
+mat_forceaniso
+[
+Set to 8 by default to reduce the moiré pattern created by mat_mipmaptextures being set to 0, the minimum value for mat_forceaniso is 1.
+]
+
+
+rate
+[
+The default rate of 80000 is fantastic for 66 tick, you can set higher to request at the maximum rate a server will allow if you desire. I use 524288 (half a megabyte) in the fast+ network config, the maximum possible value is 1048576 (a megabyte).
+]
+
+
+r_shadowmaxrendered 0;r_shadowrendertotexture 0;r_shadows 0
+[
+r_shadows 0 alone does not disable it entirely, leaving behind a constant hefty FPS drop without you knowing.
+]
