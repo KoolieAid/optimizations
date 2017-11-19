@@ -1,5 +1,5 @@
 # Introduction
-This is a config framework, with its main purpose being to replace defaults with more optimal values, providing large performance gains with minimal impacts to visual quality, and general improvements towards everything else.
+This is a config framework, with its main purpose being to replace defaults with more optimal values, providing large performance gains with minimal impacts to visual quality and general improvements towards everything else.
 
 It is very customizable and will under most circumstances appeal to your personal preferences.
 
