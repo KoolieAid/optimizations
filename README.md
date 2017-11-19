@@ -16,7 +16,7 @@ Open the **tf** folder, then ***delete*** the **cfg** folder.
 
 Click on 'Verify Integrity of Game Files' in Steam and wait, this is in the same tab as 'Browse Local Files', there will no longer be conflicts after Steam is done verifying.
 
-**Used an older version of my config? It's as simple as removing the TF2 folder in tf/custom, make sure to reconfigure the autoexec!**
+**Used an older version of my config? It's as simple as removing the TF2 folder in tf/custom, make sure to reconfigure the autoexec after installing again!**
 
 # Installation
 Download the latest version from: **https://github.com/source-engine/optimizations/releases/latest**
